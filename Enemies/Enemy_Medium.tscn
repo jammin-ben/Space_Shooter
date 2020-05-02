@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Enemy_Medium.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Ship_Enemy_Medium.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.9142, 12 )
+
+[sub_resource type="Animation" id=2]
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -50, 0 ), Vector2( 50, 0 ) ]
+}
+
+[node name="Enemy_Medium" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 46.4798, 0 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="Sprite/Area2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/Slow = SubResource( 2 )
+
+
+[editable path="Sprite/Area2D"]
