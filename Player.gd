@@ -3,17 +3,22 @@ extends Node2D
 const ACC = 4000
 const MAX_SPEED = 400
 const FRICTION = .8
-const RELOAD_TIME = .2
+const RELOAD_TIME = .24
 
 var xspeed = 0
 var yspeed = 0
 
 onready var sky = $ParallaxBackground/ParallaxLayer
 var bullet
+var bullet_fx
 var reloading=0.0
 
 func fire():
 	if(reloading<=0):
+		var bullet_fx_instance = bullet_fx.instance()
+		get_tree().root.add_child(bullet_fx_instance)
+		bullet_fx_instance.position=self.position
+		
 		var bullet_instance = bullet.instance()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.position=self.position
@@ -21,6 +26,7 @@ func fire():
 
 func _ready():
 	bullet = load("res://Bullets/Bullet_Basic.tscn")
+	bullet_fx = load("res://Sound_Effects/Shoot_sf.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#sky movement
