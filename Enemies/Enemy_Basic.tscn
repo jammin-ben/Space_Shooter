@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Basic.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Ship_Enemy.png" type="Texture" id=2]
 [ext_resource path="res://Hitboxes/Hitbox.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.8255, 8 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Sine"
 length = 2.0
 loop = true
@@ -24,7 +21,7 @@ tracks/0/keys = {
 "values": [ Vector2( 50, 0 ), Vector2( -50, 0 ) ]
 }
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy_Basic" type="Node2D"]
 position = Vector2( 19.606, 0 )
 script = ExtResource( 1 )
 
@@ -33,15 +30,10 @@ position = Vector2( 46.5685, 0 )
 texture = ExtResource( 2 )
 hframes = 4
 
-[node name="Area2D" parent="Sprite" instance=ExtResource( 3 )]
-
-[node name="CollisionShape2D" parent="Sprite/Area2D" index="0"]
-shape = SubResource( 1 )
+[node name="Hurtbox" parent="Sprite" instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Sine"
-anims/Sine = SubResource( 2 )
+anims/Sine = SubResource( 1 )
 
-[connection signal="area_entered" from="Sprite/Area2D" to="." method="_on_Area2D_area_entered"]
-
-[editable path="Sprite/Area2D"]
+[connection signal="area_entered" from="Sprite/Hurtbox" to="." method="_on_Area2D_area_entered"]

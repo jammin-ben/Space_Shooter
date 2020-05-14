@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	self.position.y+=delta*speed
 
-func _on_Area2D_area_entered(area):
+func _on_Hurtbox_area_entered(area):
 	
 	var particle_instance=particle.instance()
 	get_tree().root.add_child(particle_instance)

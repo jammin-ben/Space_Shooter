@@ -1,16 +1,16 @@
 extends Sprite
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-const SPEED=300
+var speed = -300
+var col_layer = 0x1 setget set_col_layer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	$Hitbox.collision_layer=col_layer
+	$Hitbox.collision_mask =col_layer
 func _process(delta):
-	self.position.y-=SPEED*delta
+	self.position.y+=speed*delta
 	if(self.position.y <= 0):
 		queue_free()
+		
+func set_col_layer(value: int):
+	$Hitbox.collision_layer=value
+	$Hitbox.collision_mask =value

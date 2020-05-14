@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Enemy_Large.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Enemy_Medium.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sounds/Waves.wav" type="AudioStream" id=5]
+[ext_resource path="res://Misc/Wall.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 
@@ -12,20 +13,35 @@
 position = Vector2( 91.8925, 272.682 )
 
 [node name="Enemies" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Enemy_Large" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 17.6354, -196.871 )
+position = Vector2( 119.335, -725.375 )
 
 [node name="Enemy_Large2" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 130.208, -18.3874 )
+position = Vector2( 69.2706, -552.208 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
-position = Vector2( 62.0939, -69.831 )
+position = Vector2( 63.7809, -321.918 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 38.6986, 31.3182 )
+position = Vector2( 91.4414, -123.394 )
 
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="KinematicBody2D" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( -10, 0 )
+scale = Vector2( 1, 40 )
+
+[node name="KinematicBody2D3" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 190, 7.00003 )
+scale = Vector2( 1, 40 )
+
+[node name="KinematicBody2D2" parent="Walls" instance=ExtResource( 6 )]
+position = Vector2( 81.5189, 330.223 )
+scale = Vector2( 10, 1 )
 
