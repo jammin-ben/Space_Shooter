@@ -8,7 +8,7 @@ var particle
 
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
-	
+	print($Sprite/Hurtbox.collision_layer)
 func _process(delta):
 	self.position.y+=delta*speed
 
