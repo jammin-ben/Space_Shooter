@@ -9,6 +9,7 @@ var particle
 var bullet
 
 onready var flasher = $Flasher
+signal camera_shake_requested
 
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
@@ -36,4 +37,5 @@ func _on_Hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1 # Replace with function body.
 	if health <=0:
+		emit_signal("camera_shake_requested")
 		queue_free()
