@@ -2,7 +2,9 @@ class_name Bullet
 
 extends Sprite
 
+
 var speed = -300
+var enabled=true
 #var col_layer = 0x1 setget set_col_layer
 #var col_mask = 0x1 setget set_col_mask
 

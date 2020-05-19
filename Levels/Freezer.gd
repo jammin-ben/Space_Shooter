@@ -1,6 +1,6 @@
 extends Node
 
-export var delay_mseconds = 100
+export var delay_mseconds = 75
 
 var enabled := true
 
@@ -10,7 +10,6 @@ func _ready() -> void:
 		
 func _on_frame_freeze_requested() -> void:
 		if not enabled:
-			print("disabled")
 			return
 		OS.delay_msec(delay_mseconds)
 		
