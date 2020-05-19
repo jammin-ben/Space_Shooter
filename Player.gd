@@ -2,17 +2,23 @@ extends KinematicBody2D
 
 const ACC = 4000
 const MAX_SPEED = 300
-const FRICTION = .2
+const FRICTION = .1
 const RELOAD_TIME = .24
+const IFRAMES = 1 
 
-var xspeed = 0
-var yspeed = 0
 var motion = Vector2.ZERO
+var reloading=0.0
+var hit_timer = 0.0
+
+var health = 5
 
 onready var sky = $ParallaxBackground/ParallaxLayer
+onready var animationplayer = $AnimationPlayer
+#onready var DamagingAreas2D = preload("res://scripts/DamagingAreas2D.gd")
+
 var bullet
 var bullet_fx
-var reloading=0.0
+var get_hit_fx
 
 func fire():
 	if(reloading<=0):
@@ -23,16 +29,18 @@ func fire():
 		var bullet_instance = bullet.instance()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.position=self.position
-		#bullet_instance.set_col_layer(2)
 		reloading = RELOAD_TIME
 
 func _ready():
 	bullet = load("res://Bullets/Bullet_Basic.tscn")
 	bullet_fx = load("res://Sound_Effects/Shoot_sf.tscn")
+	get_hit_fx = load("res://Sound_Effects/Player_Hit_sf.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#sky movement
 	reloading -= delta 
+	hit_timer -= delta
+	
 	sky.motion_offset.y+=100*delta
 	
 	#movement
@@ -45,26 +53,28 @@ func _physics_process(delta):
 	
 	#clamp motion:
 	motion=motion.clamped(MAX_SPEED)
-	
 	motion=move_and_slide(motion)
 	
 	if(input==Vector2.ZERO):
 		motion=lerp(motion,Vector2.ZERO,FRICTION)
 	
-	#xspeed += ACC * x_input * delta 
-	#yspeed += ACC * y_input * delta
-	
-	#xspeed = clamp(xspeed,-1*MAX_SPEED,MAX_SPEED)
-	#yspeed = clamp(yspeed,-1*MAX_SPEED,MAX_SPEED)
-	#if(x_input == 0):
-#		xspeed *= FRICTION#
-#	if(y_input == 0):#
-#		yspeed *= FRICTION
-	
-	#self.position.x+= xspeed * delta
-	#self.position.y+= yspeed * delta
 	if Input.is_action_pressed("ui_accept"):
 		fire()
 	if Input.is_action_pressed("ui_reset"):
 		get_tree().reload_current_scene()
+
+func _on_Hurtbox_area_entered(area):
+	if(hit_timer <=0):
 		
+		#sound effect
+		var get_hit_fx_instance = get_hit_fx.instance()
+		get_tree().root.add_child(get_hit_fx_instance)
+		get_hit_fx_instance.position=self.position
+		
+		animationplayer.play("flicker")
+		self.health-=1
+		if(area.get_parent() is Bullet):
+			area.get_parent().queue_free()
+		if self.health<=0:
+			queue_free()
+		hit_timer = IFRAMES

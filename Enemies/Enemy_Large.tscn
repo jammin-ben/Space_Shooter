@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy_Large.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Ship_Enemy_Large.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29.3303, 20 )
+extents = Vector2( 31.3303, 22 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28.3303, 20 )
 
 [node name="Enemy_Large" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -15,11 +18,16 @@ position = Vector2( 4.06369, 0 )
 texture = ExtResource( 3 )
 frame = 3
 
-[node name="CollisionShape2D" parent="Sprite/Area2D" index="0"]
+[node name="CollisionShape2D" parent="Sprite/Hurtbox" index="0"]
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = ""
 
 
-[editable path="Sprite/Area2D"]
+[editable path="Sprite/Hurtbox"]
+
+[editable path="Sprite/Hitbox"]

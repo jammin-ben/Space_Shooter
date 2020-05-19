@@ -1,19 +1,30 @@
 extends Node2D
 
 var speed = 30
-
 var health = 3
-var particle 
+var reloading = 1
+var firerate = 2
 
+
+var particle 
+var bullet
 
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
-	print($Sprite/Hurtbox.collision_layer)
+	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
+func fire():
+	var bullet_instance = bullet.instance()
+	get_tree().root.add_child(bullet_instance)
+	bullet_instance.position=self.position
+	reloading = firerate
+	
 func _process(delta):
 	self.position.y+=delta*speed
+	if(reloading <=0):
+		fire()
+	reloading -= delta
 
-func _on_Area2D_area_entered(area):
-	
+func _on_Hurtbox_area_entered(area):
 	var particle_instance=particle.instance()
 	get_tree().root.add_child(particle_instance)
 	particle_instance.position=area.get_parent().position

@@ -19,7 +19,7 @@ editor/display_folded = true
 position = Vector2( 119.335, -725.375 )
 
 [node name="Enemy_Large2" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 69.2706, -552.208 )
+position = Vector2( 75.1147, 32.1989 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 63.7809, -321.918 )
@@ -32,6 +32,7 @@ stream = ExtResource( 5 )
 autoplay = true
 
 [node name="Walls" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="KinematicBody2D" parent="Walls" instance=ExtResource( 6 )]
 position = Vector2( -10, 0 )
