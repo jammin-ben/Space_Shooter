@@ -1,4 +1,5 @@
-extends Node2D
+extends Sprite
+
 
 var speed = 30
 var health = 3
@@ -9,11 +10,12 @@ var particle
 var bullet
 
 onready var flasher = $Flasher
-signal camera_shake_requested
+signal camera_shake_requested(amount,damping)
 
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
+	
 func fire():
 	var bullet_instance = bullet.instance()
 	get_tree().root.add_child(bullet_instance)
@@ -22,9 +24,11 @@ func fire():
 	
 func _process(delta):
 	self.position.y+=delta*speed
-	if(reloading <=0):
-		fire()
-	reloading -= delta
+	$Hurtbox.position=self.offset
+	$Hitbox.position=self.offset
+	#if(reloading <=0):
+#		fire()
+	#reloading -= delta
 
 func _on_Hurtbox_area_entered(area):
 	flasher.play("flash")
@@ -37,5 +41,5 @@ func _on_Hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1 # Replace with function body.
 	if health <=0:
-		emit_signal("camera_shake_requested")
+		emit_signal("camera_shake_requested",1.5,.2)
 		queue_free()

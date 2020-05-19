@@ -1,33 +1,30 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemy_Large.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/Ship_Enemy_Large.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Ship_Enemy_Large.png" type="Texture" id=2]
+[ext_resource path="res://Enemy_Large.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.3303, 22 )
+extents = Vector2( 30, 23 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 28.3303, 20 )
+extents = Vector2( 27, 18 )
 
-[node name="Enemy_Large" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-
-[node name="Sprite" parent="." index="0"]
-position = Vector2( 4.06369, 0 )
-texture = ExtResource( 3 )
+[node name="Enemy_Large" index="0" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
 frame = 3
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" parent="Sprite/Hurtbox" index="0"]
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" parent="." index="3"]
 autoplay = ""
 
 
-[editable path="Sprite/Hurtbox"]
+[editable path="Hurtbox"]
 
-[editable path="Sprite/Hitbox"]
+[editable path="Hitbox"]

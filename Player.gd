@@ -11,7 +11,7 @@ var reloading=0.0
 var hit_timer = 0.0
 
 signal frame_freeze_requested
-signal camera_shake_requested
+signal camera_shake_requested(amount,damping)
 
 var health = 5
 
@@ -80,5 +80,5 @@ func _on_Hurtbox_area_entered(area):
 		if self.health<=0:
 			queue_free()
 		hit_timer = IFRAMES
-		emit_signal("camera_shake_requested")
+		emit_signal("camera_shake_requested",1.5,.1)
 		emit_signal("frame_freeze_requested")
