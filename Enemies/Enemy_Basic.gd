@@ -5,9 +5,10 @@ var health = 3
 var reloading = 1
 var firerate = 2
 
-
 var particle 
 var bullet
+
+onready var flasher = $Flasher
 
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
@@ -25,6 +26,7 @@ func _process(delta):
 	reloading -= delta
 
 func _on_Hurtbox_area_entered(area):
+	flasher.play("flash")
 	var particle_instance=particle.instance()
 	get_tree().root.add_child(particle_instance)
 	particle_instance.position=area.get_parent().position

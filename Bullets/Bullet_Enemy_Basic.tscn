@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Bullets/Bullet_Basic.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/Bullet_Medium.png" type="Texture" id=2]
-[ext_resource path="res://Bullet_Enemy_Basic.gd" type="Script" id=3]
+[ext_resource path="res://Bullet_Enemy_Basic.gd" type="Script" id=2]
 
 [node name="Bullet_Sprite" instance=ExtResource( 1 )]
 modulate = Color( 1, 0.235294, 0, 1 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Hitbox" parent="." index="0"]
 visible = false
