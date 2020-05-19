@@ -10,6 +10,8 @@ var motion = Vector2.ZERO
 var reloading=0.0
 var hit_timer = 0.0
 
+signal frame_freeze_requested
+
 var health = 5
 
 onready var sky = $ParallaxBackground/ParallaxLayer
@@ -65,7 +67,6 @@ func _physics_process(delta):
 
 func _on_Hurtbox_area_entered(area):
 	if(hit_timer <=0):
-		
 		#sound effect
 		var get_hit_fx_instance = get_hit_fx.instance()
 		get_tree().root.add_child(get_hit_fx_instance)
@@ -78,3 +79,5 @@ func _on_Hurtbox_area_entered(area):
 		if self.health<=0:
 			queue_free()
 		hit_timer = IFRAMES
+		emit_signal("frame_freeze_requested")
+		

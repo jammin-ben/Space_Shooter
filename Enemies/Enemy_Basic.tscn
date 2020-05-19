@@ -44,7 +44,9 @@ tracks/0/keys = {
 "values": [ Color( 10, 10, 10, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Enemy_Basic" type="Node2D"]
+[node name="Enemy_Basic" type="Node2D" groups=[
+"frame_freezer",
+]]
 position = Vector2( 19.606, 0 )
 script = ExtResource( 1 )
 
