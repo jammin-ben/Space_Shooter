@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Explosion_small.png" type="Texture" id=1]
 [ext_resource path="res://Explosion.gd" type="Script" id=2]
+[ext_resource path="res://Sound_Effects/Explosion_sf.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "explode"
@@ -28,4 +29,8 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explode"
 anims/explode = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 3 )]
+volume_db = -1.0
+pitch_scale = 0.8
 
