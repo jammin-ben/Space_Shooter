@@ -8,6 +8,7 @@ export var animation_name = "Sine"
 
 var particle
 var bullet
+var explosion
 
 onready var flasher = $Flasher
 signal camera_shake_requested(amount,damping)
@@ -15,10 +16,12 @@ signal camera_shake_requested(amount,damping)
 func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
+	explosion = load("res://Particle_Effects/Explosion.tscn")
 	
 	$AnimationPlayer.play(animation_name)
 	for gun in $Guns.get_children():
 		gun.firerate = self.firerate
+		
 func fire():
 	var bullet_instance = bullet.instance()
 	get_tree().root.add_child(bullet_instance)
@@ -44,5 +47,8 @@ func _on_Hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1 # Replace with function body.
 	if health <=0:
+		var expl_instance = explosion.instance()
+		get_tree().root.add_child(expl_instance)
+		expl_instance.position=self.position+self.offset
 		emit_signal("camera_shake_requested",3,.1)
 		queue_free()

@@ -12,10 +12,10 @@ extents = Vector2( 7.8255, 9 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 7 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "None"
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "values": [ Vector2( -15.1993, 0 ), Vector2( 20, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -70,11 +70,11 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Sine"
-anims/None = SubResource( 5 )
-anims/Sine = SubResource( 3 )
+anims/None = SubResource( 3 )
+anims/Sine = SubResource( 4 )
 
 [node name="Flasher" type="AnimationPlayer" parent="."]
-anims/flash = SubResource( 4 )
+anims/flash = SubResource( 5 )
 
 [node name="Guns" type="Node" parent="."]
 
