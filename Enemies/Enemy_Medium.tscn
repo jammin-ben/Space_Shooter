@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Ship_Enemy_Medium.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/Enemy_Medium.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 12 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -31,9 +31,10 @@ texture = ExtResource( 2 )
 frame = 1
 script = ExtResource( 3 )
 firerate = 3.0
+explosion_texture = "res://Sprites/Explosion_Medium.png"
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )

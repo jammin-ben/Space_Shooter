@@ -5,6 +5,7 @@ var reloading = 1
 export var health = 3
 export var firerate = .20
 export var animation_name = "Sine"
+export var explosion_texture = "res://Sprites/Explosion_small.png"
 
 var particle
 var bullet
@@ -49,6 +50,7 @@ func _on_Hurtbox_area_entered(area):
 	if health <=0:
 		var expl_instance = explosion.instance()
 		get_tree().root.add_child(expl_instance)
+		expl_instance.set_texture(load(explosion_texture))
 		expl_instance.position=self.position+self.offset
 		emit_signal("camera_shake_requested",3,.1)
 		queue_free()
