@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Voyage.wav-d63c41eb56c7c5e557bc35a223bdec28.sample"
+
+[deps]
+
+source_file="res://Sounds/Voyage.wav"
+dest_files=[ "res://.import/Voyage.wav-d63c41eb56c7c5e557bc35a223bdec28.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

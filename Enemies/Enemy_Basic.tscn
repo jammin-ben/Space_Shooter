@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Ship_Enemy.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Enemy_Basic.gd" type="Script" id=2]
@@ -11,6 +11,9 @@ extents = Vector2( 7.8255, 9 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 7 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "None"
 
 [sub_resource type="Animation" id=3]
 length = 2.0
@@ -29,7 +32,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.05
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -38,16 +41,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.420449, 1 ),
 "update": 0,
 "values": [ Color( 12.13, 11.63, 11.63, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="Enemy_Basic" type="Sprite"]
+[node name="Enemy_Basic" type="Sprite" groups=[
+"camera_shaker",
+]]
 texture = ExtResource( 1 )
 hframes = 4
 script = ExtResource( 2 )
+firerate = 4.0
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 collision_layer = 2
@@ -62,14 +68,17 @@ collision_layer = 16
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
 
-[node name="Bullet_Spawner_Enemy" parent="." instance=ExtResource( 5 )]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Sine"
+anims/None = SubResource( 5 )
 anims/Sine = SubResource( 3 )
 
 [node name="Flasher" type="AnimationPlayer" parent="."]
 anims/flash = SubResource( 4 )
+
+[node name="Guns" type="Node" parent="."]
+
+[node name="Bullet_Spawner_Enemy" parent="Guns" instance=ExtResource( 5 )]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

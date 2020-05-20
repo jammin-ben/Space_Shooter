@@ -80,5 +80,5 @@ func _on_Hurtbox_area_entered(area):
 		if self.health<=0:
 			queue_free()
 		hit_timer = IFRAMES
-		emit_signal("camera_shake_requested",1.5,.1)
+		emit_signal("camera_shake_requested",4,.05)
 		emit_signal("frame_freeze_requested")

@@ -1,5 +1,5 @@
 extends Camera2D
-var shake_amount = 1.0
+var shake_amount = 0
 var damping = .1
 func _ready() -> void:
 	for shake_obj in get_tree().get_nodes_in_group("camera_shaker"):

@@ -8,6 +8,7 @@ var bullet
 
 func _ready():
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
+	
 func _process(delta):
 	if(reloading<=0):
 		fire()
@@ -16,8 +17,8 @@ func _process(delta):
 func fire():
 	var bullet_instance = bullet.instance()
 	get_tree().root.add_child(bullet_instance)
-	bullet_instance.position=get_parent().position
-	bullet_instance.offset=get_parent().offset
+	bullet_instance.position=get_parent().get_parent().position+self.position
+	bullet_instance.offset=get_parent().get_parent().offset
 	reloading = firerate
 	
 	

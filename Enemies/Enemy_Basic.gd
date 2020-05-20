@@ -1,12 +1,12 @@
 extends Sprite
 
-
 var speed = 30
-var health = 3
 var reloading = 1
-var firerate = 2
+export var health = 3
+export var firerate = .20
+export var animation_name = "Sine"
 
-var particle 
+var particle
 var bullet
 
 onready var flasher = $Flasher
@@ -16,6 +16,9 @@ func _ready():
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
 	
+	$AnimationPlayer.play(animation_name)
+	for gun in $Guns.get_children():
+		gun.firerate = self.firerate
 func fire():
 	var bullet_instance = bullet.instance()
 	get_tree().root.add_child(bullet_instance)
@@ -41,5 +44,5 @@ func _on_Hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1 # Replace with function body.
 	if health <=0:
-		emit_signal("camera_shake_requested",1.5,.2)
+		emit_signal("camera_shake_requested",3,.1)
 		queue_free()
