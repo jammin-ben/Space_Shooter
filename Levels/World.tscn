@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Enemies/Enemy_Medium.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemies/Enemy_Large.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/Voyage.wav" type="AudioStream" id=5]
-[ext_resource path="res://Misc/Wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/Freezer.gd" type="Script" id=7]
-[ext_resource path="res://Levels/Camera2D.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/Voyage.wav" type="AudioStream" id=2]
+[ext_resource path="res://Misc/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/Freezer.gd" type="Script" id=4]
+[ext_resource path="res://Levels/Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://Enemy_Formations/Level_One.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 
@@ -16,47 +14,33 @@
 ] instance=ExtResource( 1 )]
 position = Vector2( 91.8925, 272.682 )
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="Enemy_Basic" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 93.0747, 15.5123 )
-
-[node name="Enemy_Medium" parent="Enemies" groups=[
-"screen_shaker",
-] instance=ExtResource( 3 )]
-position = Vector2( 66.5246, -86.8567 )
-
-[node name="Enemy_Large" parent="Enemies" groups=[
-"screen_shaker",
-] instance=ExtResource( 4 )]
-position = Vector2( 110.624, -170.021 )
-
 [node name="Music_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 2 )
 autoplay = true
 
 [node name="Walls" type="Node" parent="."]
-editor/display_folded = true
 
-[node name="KinematicBody2D" parent="Walls" instance=ExtResource( 6 )]
-position = Vector2( -10, 0 )
+[node name="KinematicBody2D" parent="Walls" instance=ExtResource( 3 )]
+position = Vector2( -10.9025, 1.80502 )
 scale = Vector2( 1, 40 )
 
-[node name="KinematicBody2D3" parent="Walls" instance=ExtResource( 6 )]
+[node name="KinematicBody2D3" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 190, 7.00003 )
 scale = Vector2( 1, 40 )
 
-[node name="KinematicBody2D2" parent="Walls" instance=ExtResource( 6 )]
+[node name="KinematicBody2D2" parent="Walls" instance=ExtResource( 3 )]
 position = Vector2( 81.5189, 330.223 )
 scale = Vector2( 10, 1 )
 
 [node name="frame_freezer" type="Node" parent="." groups=[
 "frame_freezer",
 ]]
-script = ExtResource( 7 )
+script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 87.5345, 162.881 )
 current = true
-script = ExtResource( 8 )
+script = ExtResource( 5 )
+
+[node name="Level_One" parent="." instance=ExtResource( 6 )]
 
