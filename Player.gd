@@ -5,6 +5,7 @@ const MAX_SPEED = 300
 const FRICTION = .1
 const RELOAD_TIME = .24
 const IFRAMES = 1 
+const MAX_HEALTH=5
 
 var motion = Vector2.ZERO
 var reloading=0.0

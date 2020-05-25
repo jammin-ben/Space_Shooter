@@ -30,7 +30,9 @@ tracks/0/keys = {
 texture = ExtResource( 2 )
 frame = 1
 script = ExtResource( 3 )
-firerate = 3.0
+health = 5
+firerate = 1.0
+animation_name = "Slow"
 explosion_texture = "res://Sprites/Explosion_Medium.png"
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

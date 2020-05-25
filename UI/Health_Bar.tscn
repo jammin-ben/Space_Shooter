@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Health_Bar.png" type="Texture" id=1]
+[ext_resource path="res://UI/Health_Bar.gd" type="Script" id=2]
+[ext_resource path="res://UI/Health_Bit.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "flash_linear"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "flash"
+}, {
+"args": [ 1 ],
+"method": "flash"
+}, {
+"args": [ 2 ],
+"method": "flash"
+}, {
+"args": [ 3 ],
+"method": "flash"
+}, {
+"args": [ 4 ],
+"method": "flash"
+} ]
+}
+
+[node name="Sprite" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="bits" type="Node2D" parent="."]
+
+[node name="Health_Bit" parent="bits" instance=ExtResource( 3 )]
+position = Vector2( -20, -8 )
+
+[node name="Health_Bit2" parent="bits" instance=ExtResource( 3 )]
+position = Vector2( -10, -8 )
+
+[node name="Health_Bit3" parent="bits" instance=ExtResource( 3 )]
+position = Vector2( 0, -8 )
+
+[node name="Health_Bit4" parent="bits" instance=ExtResource( 3 )]
+position = Vector2( 10, -8 )
+
+[node name="Health_Bit5" parent="bits" instance=ExtResource( 3 )]
+position = Vector2( 20, -8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/flash_linear = SubResource( 1 )
+

@@ -6,6 +6,7 @@ export var health = 3
 export var firerate = .20
 export var animation_name = "Sine"
 export var explosion_texture = "res://Sprites/Explosion_small.png"
+export var backward_anim = false
 
 var particle
 var bullet
@@ -15,11 +16,16 @@ onready var flasher = $Flasher
 signal camera_shake_requested(amount,damping)
 
 func _ready():
+	
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
 	explosion = load("res://Particle_Effects/Explosion.tscn")
 	
-	$AnimationPlayer.play(animation_name)
+	if(backward_anim):
+		$AnimationPlayer.play_backwards(animation_name)
+	else:
+		$AnimationPlayer.play(animation_name)
+	
 	for gun in $Guns.get_children():
 		gun.firerate = self.firerate
 		

@@ -16,7 +16,8 @@ position = Vector2( 43.2184, -183.841 )
 position = Vector2( 83.8388, -47.6297 )
 
 [node name="Enemy_Basic2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 116.187, -182.457 )
+position = Vector2( 132.895, -183.841 )
+backward_anim = true
 
 [node name="Enemy_Medium2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 82.9589, -290.453 )
