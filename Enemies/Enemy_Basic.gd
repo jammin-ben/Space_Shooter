@@ -34,7 +34,7 @@ func fire():
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.position=self.position
 	reloading = firerate
-	
+
 func _process(delta):
 	self.position.y+=delta*speed
 	$Hurtbox.position=self.offset
