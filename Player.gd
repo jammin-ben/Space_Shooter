@@ -13,6 +13,7 @@ var hit_timer = 0.0
 
 signal frame_freeze_requested
 signal camera_shake_requested(amount,damping)
+signal player_killed()
 
 var health = 5
 
@@ -67,6 +68,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_reset"):
 		get_tree().reload_current_scene()
 
+func _kill():
+	emit_signal("player_killed")
+	queue_free()
+
 func _on_Hurtbox_area_entered(area):
 	if(hit_timer <=0):
 		#sound effect
@@ -78,8 +83,8 @@ func _on_Hurtbox_area_entered(area):
 		self.health-=1
 		if(area.get_parent() is Bullet):
 			area.get_parent().queue_free()
-		if self.health<=0:
-			queue_free()
+		if self.health <= 0:
+			_kill()
 		hit_timer = IFRAMES
-		emit_signal("camera_shake_requested",4,.05)
+		emit_signal("camera_shake_requested", 4, .05)
 		emit_signal("frame_freeze_requested")

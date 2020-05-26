@@ -49,4 +49,3 @@ script = ExtResource( 5 )
 
 [node name="Health_Bar" parent="CanvasLayer" instance=ExtResource( 7 )]
 position = Vector2( 32.5436, 25.9574 )
-
