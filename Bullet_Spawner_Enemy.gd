@@ -3,12 +3,14 @@ extends Node2D
 var firerate=1
 var reloading=0
 
+export var bullet_type = "res://Bullets/Bullet_Enemy_Basic.tscn"
+
 var bullet
 
 
 func _ready():
-	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
-	
+	bullet = load(bullet_type)
+
 func _process(delta):
 	if(reloading<=0):
 		fire()

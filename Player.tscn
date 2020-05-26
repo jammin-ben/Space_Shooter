@@ -52,6 +52,7 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.128517, 0 )
 shape = SubResource( 1 )
 
@@ -83,6 +84,7 @@ volume_db = -10.759
 autoplay = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+visible = false
 collision_mask = 24
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

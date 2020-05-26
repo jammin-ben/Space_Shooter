@@ -4,10 +4,12 @@
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Enemy_Large.tscn" type="PackedScene" id=3]
 
-[node name="Level_One" type="Node2D"]
+[node name="Level_One" type="Node"]
 
 [node name="Enemy_Medium" parent="." instance=ExtResource( 1 )]
-position = Vector2( 85.5692, -495.035 )
+position = Vector2( 79.5788, -696 )
+offset = Vector2( 0, 0 )
+hframes = 4
 
 [node name="Enemy_Basic" parent="." instance=ExtResource( 2 )]
 position = Vector2( 43.2184, -183.841 )
@@ -20,29 +22,33 @@ position = Vector2( 132.895, -183.841 )
 backward_anim = true
 
 [node name="Enemy_Medium2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 82.9589, -290.453 )
+position = Vector2( 79.8939, -320 )
+offset = Vector2( 0, 0 )
+hframes = 4
 
 [node name="Enemy_Basic4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 38.7398, -537.742 )
+position = Vector2( 45.4516, -728 )
 
 [node name="Enemy_Basic6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 79.8939, -379.985 )
+position = Vector2( 79.8939, -486.563 )
 
 [node name="Enemy_Basic7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 59.2184, -379.985 )
+position = Vector2( 59.2184, -486.563 )
 
 [node name="Enemy_Basic8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 100.761, -379.985 )
+position = Vector2( 100.761, -486.563 )
 
 [node name="Enemy_Basic9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 79.8939, -397.422 )
+position = Vector2( 79.8939, -504 )
 
 [node name="Enemy_Basic10" parent="." instance=ExtResource( 2 )]
-position = Vector2( 79.8939, -358.834 )
+position = Vector2( 79.8939, -465.412 )
 
 [node name="Enemy_Basic5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 132.895, -542.968 )
+position = Vector2( 127.685, -728 )
 
 [node name="Enemy_Large" parent="." instance=ExtResource( 3 )]
-position = Vector2( 83.6198, -623.809 )
+position = Vector2( 83.8388, -960 )
+offset = Vector2( 0, 0 )
+hframes = 4
 

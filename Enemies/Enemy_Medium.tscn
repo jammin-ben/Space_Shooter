@@ -28,7 +28,6 @@ tracks/0/keys = {
 
 [node name="Enemy_Medium" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
-frame = 1
 script = ExtResource( 3 )
 health = 5
 firerate = 1.0
