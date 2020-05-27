@@ -13,7 +13,7 @@ var bullet
 var explosion
 
 onready var flasher = $Flasher
-signal camera_shake_requested(amount,damping)
+signal camera_shake_requested(amount)
 
 func _ready():
 	
@@ -58,5 +58,5 @@ func _on_Hurtbox_area_entered(area):
 		get_tree().root.add_child(expl_instance)
 		expl_instance.set_texture(load(explosion_texture))
 		expl_instance.position=self.position+self.offset
-		emit_signal("camera_shake_requested",4,.1)
+		emit_signal("camera_shake_requested",.45)
 		queue_free()

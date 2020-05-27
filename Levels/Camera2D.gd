@@ -1,18 +1,28 @@
 extends Camera2D
-var shake_amount = 0
-var damping = .1
+var noise
+var trauma = 1
+var shake = 0
+var time = 0
+var trauma_damping = .03
+var max_shake_translation = 100
 func _ready() -> void:
 	for shake_obj in get_tree().get_nodes_in_group("camera_shaker"):
 		shake_obj.connect("camera_shake_requested",self,"_on_camera_shake_requested")
-
-
+	noise = OpenSimplexNoise.new()
+	noise.period = .5
+	noise.seed=randi()
+	noise.octaves=4
+	noise.persistence = .7
 func _process(delta):
-	self.set_offset(Vector2( \
-		rand_range(-1.0, 1.0) * shake_amount, \
-		rand_range(-1.0, 1.0) * shake_amount \
-	))
-	self.shake_amount=lerp(self.shake_amount,0,self.damping)
+	time+=delta
+	if(self.trauma>0):
+		shake = trauma*trauma * max_shake_translation
+		self.set_offset(Vector2( \
+			shake*noise.get_noise_2d(time,time), \
+			shake*noise.get_noise_2d(time+1000,time+1000) 
+		))
 	
-func _on_camera_shake_requested(amount=1,damping=.1):
-	self.shake_amount = amount
-	self.damping=damping
+	trauma=lerp(trauma,0,trauma_damping)
+	
+func _on_camera_shake_requested(amount=.1):
+	trauma = clamp(trauma+amount,0,1)
