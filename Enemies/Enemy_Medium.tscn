@@ -35,6 +35,7 @@ health = 5
 firerate = 1.0
 animation_name = "Slow"
 explosion_texture = "res://Sprites/Explosion_Medium.png"
+explosion_power = 0.55
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 1 )

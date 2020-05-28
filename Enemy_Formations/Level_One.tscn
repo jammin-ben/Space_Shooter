@@ -14,7 +14,7 @@ offset = Vector2( 0, 0 )
 position = Vector2( 43.2184, -183.841 )
 
 [node name="Enemy_Basic3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 83.8388, -47.6297 )
+position = Vector2( 88.3927, -47.6297 )
 
 [node name="Enemy_Basic2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 132.895, -183.841 )
@@ -46,11 +46,7 @@ position = Vector2( 79.8939, -465.412 )
 position = Vector2( 124.499, -664 )
 
 [node name="Enemy_Large" parent="." instance=ExtResource( 3 )]
-position = Vector2( 76.3927, -832 )
+position = Vector2( 76.3927, -800 )
 offset = Vector2( 0, 0 )
-hframes = 4
-
-[node name="Enemy_Medium3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 129.957, -378 )
-scale = Vector2( 3.07461, 3.16667 )
+explosion_texture = "res://Sprites/Explosion_Large.png"
 

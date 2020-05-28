@@ -13,11 +13,13 @@ extents = Vector2( 27, 18 )
 
 [node name="Enemy_Large" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
+hframes = 4
 frame = 3
 script = ExtResource( 3 )
 health = 15
 animation_name = "None"
 explosion_texture = "res://Sprites/Explosion_Medium.png"
+explosion_power = 0.7
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 1 )
