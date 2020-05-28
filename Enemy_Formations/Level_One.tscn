@@ -7,9 +7,8 @@
 [node name="Level_One" type="Node"]
 
 [node name="Enemy_Medium" parent="." instance=ExtResource( 1 )]
-position = Vector2( 79.5788, -696 )
+position = Vector2( 76.3927, -632 )
 offset = Vector2( 0, 0 )
-hframes = 4
 
 [node name="Enemy_Basic" parent="." instance=ExtResource( 2 )]
 position = Vector2( 43.2184, -183.841 )
@@ -24,10 +23,9 @@ backward_anim = true
 [node name="Enemy_Medium2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 79.8939, -320 )
 offset = Vector2( 0, 0 )
-hframes = 4
 
 [node name="Enemy_Basic4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 45.4516, -728 )
+position = Vector2( 42.2655, -664 )
 
 [node name="Enemy_Basic6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 79.8939, -486.563 )
@@ -45,10 +43,14 @@ position = Vector2( 79.8939, -504 )
 position = Vector2( 79.8939, -465.412 )
 
 [node name="Enemy_Basic5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 127.685, -728 )
+position = Vector2( 124.499, -664 )
 
 [node name="Enemy_Large" parent="." instance=ExtResource( 3 )]
-position = Vector2( 83.8388, -960 )
+position = Vector2( 76.3927, -832 )
 offset = Vector2( 0, 0 )
 hframes = 4
+
+[node name="Enemy_Medium3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 129.957, -378 )
+scale = Vector2( 3.07461, 3.16667 )
 

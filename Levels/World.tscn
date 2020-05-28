@@ -45,14 +45,14 @@ script = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 87.5345, 162.881 )
+rotating = true
 current = true
 script = ExtResource( 6 )
 
 [node name="Level_One" parent="." instance=ExtResource( 7 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="Health_Bar" parent="CanvasLayer" instance=ExtResource( 8 )]
-position = Vector2( 32.5436, 25.9574 )
+position = Vector2( 31.1116, 313.786 )
 
