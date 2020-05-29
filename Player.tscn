@@ -72,6 +72,7 @@ anims/Burn = SubResource( 2 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
 motion_mirroring = Vector2( 180, 320 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
@@ -84,7 +85,6 @@ volume_db = -10.759
 autoplay = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
-visible = false
 collision_mask = 24
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
