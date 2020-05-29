@@ -67,7 +67,6 @@ texture = ExtResource( 1 )
 offset = Vector2( -9.26553, 0 )
 hframes = 6
 script = ExtResource( 2 )
-firerate = 4.0
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]
 visible = false
