@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=1]
 
-[node name="Little_Fleet" type="Node"]
+[node name="Little_Fleet" type="Node2D"]
 
 [node name="Enemy_Basic" parent="." instance=ExtResource( 1 )]
 

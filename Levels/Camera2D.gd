@@ -1,6 +1,6 @@
 extends Camera2D
 var noise
-var trauma = 1
+var trauma = 0
 var shake = 0
 var time = 0
 var trauma_damping = .03

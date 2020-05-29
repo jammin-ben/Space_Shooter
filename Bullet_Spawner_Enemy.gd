@@ -17,10 +17,10 @@ func _process(delta):
 	reloading-=delta
 
 func fire():
+	print(self.global_transform.origin)
 	var bullet_instance = bullet.instance()
 	get_tree().root.add_child(bullet_instance)
-	bullet_instance.position=get_parent().get_parent().position+self.position
+	#bullet_instance.position=get_parent().get_parent().position+self.position
+	bullet_instance.position=self.get_global_transform().origin# + get_parent().get_parent().position
 	bullet_instance.offset=get_parent().get_parent().offset
 	reloading = firerate
-	
-	

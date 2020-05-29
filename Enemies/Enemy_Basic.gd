@@ -30,11 +30,11 @@ func _ready():
 	for gun in $Guns.get_children():
 		gun.firerate = self.firerate
 		
-func fire():
-	var bullet_instance = bullet.instance()
-	get_tree().root.add_child(bullet_instance)
-	bullet_instance.position=self.position
-	reloading = firerate
+#func fire():
+#	var bullet_instance = bullet.instance()
+#	get_tree().root.add_child(bullet_instance)
+#	bullet_instance.position=self.position
+#	reloading = firerate
 
 func _process(delta):
 	self.position.y+=delta*speed
