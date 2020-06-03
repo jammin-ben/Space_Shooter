@@ -6,4 +6,5 @@ extends Sprite
 
 func _process(delta):
 	if not $AnimationPlayer.is_playing():
+		print("free")
 		queue_free()
