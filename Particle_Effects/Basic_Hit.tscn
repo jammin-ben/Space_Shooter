@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Bullet_Medium.png" type="Texture" id=1]
-[ext_resource path="res://Sound_Effects/Hit_sf.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Particle_Effects/Basic_Hit.gd" type="Script" id=2]
+[ext_resource path="res://Sound_Effects/Hit_sf.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0.894118, 0.121569, 0.121569, 1, 0.917647, 0.905882, 0.568627, 1 )
@@ -43,8 +44,9 @@ one_shot = true
 explosiveness = 0.53
 process_material = SubResource( 7 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 
-[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 2 )]
+[node name="AudioStreamPlayer2D" parent="." instance=ExtResource( 3 )]
 volume_db = -16.906
 autoplay = true
 

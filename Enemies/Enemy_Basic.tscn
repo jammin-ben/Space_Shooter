@@ -16,32 +16,32 @@ extents = Vector2( 7, 7 )
 resource_name = "None"
 
 [sub_resource type="Animation" id=4]
-length = 2.0
+length = 2.5
 loop = true
 step = 0.25
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:offset")
-tracks/0/interp = 2
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -15.1993, 0 ), Vector2( 20, 0 ) ]
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 0, 1, 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:frame")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 0, 1, 2 ]
+"times": PoolRealArray( 0, 0.75, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 15, 0 ), Vector2( -15, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -63,9 +63,10 @@ tracks/0/keys = {
 [node name="Enemy_Basic" type="Sprite" groups=[
 "camera_shaker",
 ]]
+position = Vector2( -0.560123, 0 )
 texture = ExtResource( 1 )
-offset = Vector2( -9.26553, 0 )
 hframes = 6
+frame = 2
 script = ExtResource( 2 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 3 )]

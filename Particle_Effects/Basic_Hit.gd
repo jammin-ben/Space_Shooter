@@ -6,8 +6,7 @@ extends Particles2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("hi")
-	print(self.position)
+	print("hello from particle effect")
 	 # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

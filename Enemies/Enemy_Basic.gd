@@ -3,7 +3,7 @@ extends Sprite
 var speed = 30
 var reloading = 1
 export var health = 3
-export var firerate = .20
+export var firerate = 1
 export var animation_name = "Sine"
 export var explosion_texture = "res://Sprites/Explosion_small.png"
 export var backward_anim = false
@@ -15,6 +15,9 @@ var bullet
 var explosion
 onready var flasher = $Flasher
 signal camera_shake_requested(amount)
+
+func get_global_position():
+	return self.global_transform.origin
 
 func _ready():
 	
@@ -29,21 +32,10 @@ func _ready():
 	
 	for gun in $Guns.get_children():
 		gun.firerate = self.firerate
-		
-#func fire():
-#	var bullet_instance = bullet.instance()
-#	get_tree().root.add_child(bullet_instance)
-#	bullet_instance.position=self.position
-#	reloading = firerate
 
 func _process(delta):
 	self.position.y+=delta*speed
-	$Hurtbox.position=self.offset
-	$Hitbox.position=self.offset
-	#if(reloading <=0):
-#		fire()
-	#reloading -= delta
-
+	
 func _on_Hurtbox_area_entered(area):
 	flasher.play("flash")
 	var particle_instance=particle.instance()
@@ -58,6 +50,6 @@ func _on_Hurtbox_area_entered(area):
 		var expl_instance = explosion.instance()
 		get_tree().root.add_child(expl_instance)
 		expl_instance.set_texture(load(explosion_texture))
-		expl_instance.position=self.position+self.offset
+		expl_instance.position=self.get_global_transform().origin
 		emit_signal("camera_shake_requested",explosion_power)
 		queue_free()
