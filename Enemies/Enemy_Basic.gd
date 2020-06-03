@@ -1,9 +1,9 @@
-extends Sprite
+extends Node2D
 
 var speed = 30
 var reloading = 1
 export var health = 3
-export var firerate = .20
+export var firerate = 2.0
 export var animation_name = "Sine"
 export var explosion_texture = "res://Sprites/Explosion_small.png"
 export var backward_anim = false
@@ -13,7 +13,7 @@ export var explosion_power = .45
 var particle
 var bullet
 var explosion
-onready var flasher = $Flasher
+onready var flasher = $Sprite/Flasher
 signal camera_shake_requested(amount)
 
 func _ready():
@@ -23,11 +23,11 @@ func _ready():
 	explosion = load("res://Particle_Effects/Explosion.tscn")
 	
 	if(backward_anim):
-		$AnimationPlayer.play_backwards(animation_name)
+		$Sprite/AnimationPlayer.play_backwards(animation_name)
 	else:
-		$AnimationPlayer.play(animation_name)
+		$Sprite/AnimationPlayer.play(animation_name)
 	
-	for gun in $Guns.get_children():
+	for gun in $Sprite/Guns.get_children():
 		gun.firerate = self.firerate
 		
 #func fire():
@@ -38,8 +38,7 @@ func _ready():
 
 func _process(delta):
 	self.position.y+=delta*speed
-	$Hurtbox.position=self.offset
-	$Hitbox.position=self.offset
+	
 	#if(reloading <=0):
 #		fire()
 	#reloading -= delta
@@ -58,6 +57,6 @@ func _on_Hurtbox_area_entered(area):
 		var expl_instance = explosion.instance()
 		get_tree().root.add_child(expl_instance)
 		expl_instance.set_texture(load(explosion_texture))
-		expl_instance.position=self.position+self.offset
+		expl_instance.position=$Sprite.get_global_transform().origin
 		emit_signal("camera_shake_requested",explosion_power)
 		queue_free()

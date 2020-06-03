@@ -1,48 +1,48 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/Ship_Enemy_Large.png" type="Texture" id=2]
-[ext_resource path="res://Enemy_Large.gd" type="Script" id=3]
+[ext_resource path="res://Enemy_Large.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Ship_Enemy_Large.png" type="Texture" id=3]
 [ext_resource path="res://Bullets/Bullet_Spawner_Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 23 )
+extents = Vector2( 29, 22 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 27, 18 )
+extents = Vector2( 27, 19 )
 
-[node name="Enemy_Large" instance=ExtResource( 1 )]
-texture = ExtResource( 2 )
-hframes = 4
-frame = 3
-script = ExtResource( 3 )
+[node name="Enemy_Large" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 health = 15
+firerate = 4.0
 animation_name = "None"
 explosion_texture = "res://Sprites/Explosion_Medium.png"
 explosion_power = 0.7
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" parent="Sprite/Hurtbox" index="0"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" parent="Sprite/Hitbox" index="0"]
 shape = SubResource( 2 )
 
-[node name="AnimationPlayer" parent="." index="2"]
-autoplay = ""
+[node name="Bullet_Spawner_Enemy" parent="Sprite/Guns" index="0"]
+position = Vector2( 11, 21 )
 
-[node name="Bullet_Spawner_Enemy" parent="Guns" index="0"]
-position = Vector2( 11, 20 )
+[node name="Bullet_Spawner_Enemy2" parent="Sprite/Guns" index="1" instance=ExtResource( 4 )]
+position = Vector2( 24, 22 )
 
-[node name="Bullet_Spawner_Enemy2" parent="Guns" index="1" instance=ExtResource( 4 )]
-position = Vector2( -11, 20 )
+[node name="Bullet_Spawner_Enemy3" parent="Sprite/Guns" index="2" instance=ExtResource( 4 )]
+position = Vector2( -11, 21 )
 
-[node name="Bullet_Spawner_Enemy3" parent="Guns" index="2" instance=ExtResource( 4 )]
-position = Vector2( -23, 22 )
-
-[node name="Bullet_Spawner_Enemy4" parent="Guns" index="3" instance=ExtResource( 4 )]
-position = Vector2( 23, 22 )
+[node name="Bullet_Spawner_Enemy4" parent="Sprite/Guns" index="3" instance=ExtResource( 4 )]
+position = Vector2( -24, 22 )
 
 
-[editable path="Hurtbox"]
+[editable path="Sprite/Hurtbox"]
 
-[editable path="Hitbox"]
+[editable path="Sprite/Hitbox"]

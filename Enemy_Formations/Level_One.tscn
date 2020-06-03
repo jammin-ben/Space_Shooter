@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Medium.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/Enemy_Basic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/Enemy_Large.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemy_Formations/Little_Fleet.tscn" type="PackedScene" id=4]
 
 [node name="Level_One" type="Node"]
 
 [node name="Enemy_Medium" parent="." instance=ExtResource( 1 )]
 position = Vector2( 76.3927, -632 )
-offset = Vector2( 0, 0 )
 
 [node name="Enemy_Basic" parent="." instance=ExtResource( 2 )]
 position = Vector2( 43.2184, -183.841 )
@@ -23,7 +21,6 @@ backward_anim = true
 
 [node name="Enemy_Medium2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 79.8939, -320 )
-offset = Vector2( 0, 0 )
 
 [node name="Enemy_Basic4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 42.2655, -664 )
@@ -47,9 +44,4 @@ position = Vector2( 79.8939, -465.412 )
 position = Vector2( 132.895, -664 )
 
 [node name="Enemy_Large" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88.3927, -832 )
-offset = Vector2( 0, 0 )
-explosion_texture = "res://Sprites/Explosion_Large.png"
-
-[node name="Little_Fleet" parent="." instance=ExtResource( 4 )]
 
