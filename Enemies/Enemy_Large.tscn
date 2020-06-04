@@ -16,7 +16,7 @@ script = ExtResource( 2 )
 health = 15
 firerate = 4.0
 animation_name = "None"
-explosion_texture = "res://Sprites/Explosion_Medium.png"
+explosion_texture = "res://Sprites/Explosion_Large.png"
 explosion_power = 0.7
 
 [node name="Sprite" parent="." index="0"]
