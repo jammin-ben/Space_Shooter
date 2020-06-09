@@ -4,7 +4,7 @@ const ACC = 4000
 const MAX_SPEED = 300
 const FRICTION = .1
 const RELOAD_TIME = .24
-const IFRAMES = 1 
+const IFRAMES = 1
 const MAX_HEALTH=5
 
 var motion = Vector2.ZERO
@@ -17,7 +17,6 @@ signal player_killed()
 
 var health = 5
 
-onready var sky = $ParallaxBackground/ParallaxLayer
 onready var animationplayer = $AnimationPlayer
 #onready var DamagingAreas2D = preload("res://scripts/DamagingAreas2D.gd")
 
@@ -40,13 +39,11 @@ func _ready():
 	bullet = load("res://Bullets/Bullet_Basic.tscn")
 	bullet_fx = load("res://Sound_Effects/Shoot_sf.tscn")
 	get_hit_fx = load("res://Sound_Effects/Player_Hit_sf.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _physics_process(delta):
 	#sky movement
 	reloading -= delta 
 	hit_timer -= delta
-	
-	sky.motion_offset.y+=100*delta
 	
 	#movement
 	var input=Vector2.ZERO
