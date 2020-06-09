@@ -11,8 +11,7 @@ func _ready():
 	
 	for i in range(10):
 		var asteroid_instance=asteroid.instance()
-		self.add_child(asteroid_instance)
-		#get_tree().root.add_child(asteroid_instance)
+		get_tree().root.call_deferred("add_child", asteroid_instance)
 		asteroid_instance.position.x += randf()*200 - 100
 		
 		asteroid_instance.position.y += randf()*200 - 100
