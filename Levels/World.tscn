@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Voyage.wav" type="AudioStream" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://UI/Health_Bar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemy_Formations/Level_One.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Misc/Asteroid_Spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Misc/ParallaxBackground.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Misc/ParallaxBackground.gd" type="Script" id=11]
 
 [node name="World" type="Node2D"]
 
@@ -59,3 +61,7 @@ position = Vector2( 31.1116, 313.786 )
 
 [node name="Node2D" parent="." instance=ExtResource( 9 )]
 position = Vector2( 87.4523, 129.464 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
+script = ExtResource( 11 )
+
