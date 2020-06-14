@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Bullets/Bullet_Spawner_Enemy.tscn" type="PackedScene" id=1]
+
+[node name="Bullet_Spawner_Enemy" instance=ExtResource( 1 )]
+bullet_type = "res://Bullets/Bullet_Basic.tscn"
+

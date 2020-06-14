@@ -62,8 +62,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_accept"):
 		fire()
-	if Input.is_action_pressed("ui_reset"):
-		get_tree().reload_current_scene()
 
 func _kill():
 	emit_signal("player_killed")
