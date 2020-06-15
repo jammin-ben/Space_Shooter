@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Bullets/Bullet_Basic.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Bullet_Enemy_Basic.gd" type="Script" id=2]
+[ext_resource path="res://Bullets/Bullet_Enemy_Basic.gd" type="Script" id=2]
 [ext_resource path="res://Sound_Effects/enemy_shot_sf.tscn" type="PackedScene" id=3]
+
 
 [node name="Bullet_Sprite" instance=ExtResource( 1 )]
 modulate = Color( 1, 0.235294, 0, 1 )

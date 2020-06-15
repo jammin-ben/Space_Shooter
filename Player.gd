@@ -11,6 +11,7 @@ var motion = Vector2.ZERO
 var reloading=0.0
 var hit_timer = 0.0
 
+
 signal frame_freeze_requested
 signal camera_shake_requested(amount)
 signal player_killed()
@@ -24,25 +25,25 @@ var bullet
 var bullet_fx
 var get_hit_fx
 
-func fire():
-	if(reloading<=0):
-		var bullet_fx_instance = bullet_fx.instance()
-		get_tree().root.add_child(bullet_fx_instance)
-		bullet_fx_instance.position=self.position
+#func fire():
+#	if(reloading<=0):
+#		var bullet_fx_instance = bullet_fx.instance()
+#		get_tree().root.add_child(bullet_fx_instance)
+#		bullet_fx_instance.position=self.position
 		
-		var bullet_instance = bullet.instance()
-		get_tree().root.add_child(bullet_instance)
-		bullet_instance.position=self.position
-		reloading = RELOAD_TIME
+#		var bullet_instance = bullet.instance()
+#		get_tree().root.add_child(bullet_instance)
+#		bullet_instance.position=self.position
+#		reloading = RELOAD_TIME
 
 func _ready():
-	bullet = load("res://Bullets/Bullet_Basic.tscn")
+	#bullet = load("res://Bullets/Bullet_Basic.tscn")
 	bullet_fx = load("res://Sound_Effects/Shoot_sf.tscn")
 	get_hit_fx = load("res://Sound_Effects/Player_Hit_sf.tscn")
 
 func _physics_process(delta):
 	#sky movement
-	reloading -= delta 
+	#reloading -= delta 
 	hit_timer -= delta
 	
 	#movement
@@ -61,7 +62,9 @@ func _physics_process(delta):
 		motion=lerp(motion,Vector2.ZERO,FRICTION)
 	
 	if Input.is_action_pressed("ui_accept"):
-		fire()
+		for gun in $Guns.get_children():
+			gun.queued=true
+			
 
 func _kill():
 	emit_signal("player_killed")
