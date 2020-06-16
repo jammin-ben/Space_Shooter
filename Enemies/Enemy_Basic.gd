@@ -17,7 +17,7 @@ onready var flasher = $Sprite/Flasher
 signal camera_shake_requested(amount)
 
 func _ready():
-	
+	reloading=firerate
 	particle = load("res://Particle_Effects/Basic_Hit.tscn")
 	bullet = load("res://Bullets/Bullet_Enemy_Basic.tscn")
 	explosion = load("res://Particle_Effects/Explosion.tscn")

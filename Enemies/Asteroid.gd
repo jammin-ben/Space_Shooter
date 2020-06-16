@@ -1,4 +1,4 @@
-extends Node2D
+extends "res://Enemies/Enemy_Basic.gd"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -6,10 +6,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite.frame=floor(randf()*3)
-	self.rotate(randf()*2*PI)
-	print("i am metero")
+	#firerate = 10000
+	#reloading = firerate
+	$Sprite/Guns/Bullet_Spawner_Enemy.reloading=10000
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position.y+=delta*20
 	self.rotation+=1*delta

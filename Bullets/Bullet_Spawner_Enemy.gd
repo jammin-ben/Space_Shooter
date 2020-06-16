@@ -1,7 +1,7 @@
 extends Node2D
 
 var firerate=1
-var reloading=0
+var reloading=firerate
 
 export var bullet_type = "res://Bullets/Bullet_Enemy_Basic.tscn"
 export var active = true
@@ -10,6 +10,7 @@ var bullet
 var bullet_fx
 
 func _ready():
+	reloading=firerate
 	bullet = load(bullet_type)
 	bullet_fx=load("res://Sound_Effects/Shoot_sf.tscn")
 	

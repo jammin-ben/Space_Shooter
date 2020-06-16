@@ -91,7 +91,6 @@ anims/None = SubResource( 3 )
 anims/Sine = SubResource( 4 )
 
 [node name="Flasher" type="AnimationPlayer" parent="Sprite"]
-autoplay = "flash"
 anims/flash = SubResource( 5 )
 
 [node name="Guns" type="Node2D" parent="Sprite"]
