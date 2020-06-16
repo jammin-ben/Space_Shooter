@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 30
+var speed = 50
 var reloading = 1
 export var health = 3
 export var firerate = 2.0
