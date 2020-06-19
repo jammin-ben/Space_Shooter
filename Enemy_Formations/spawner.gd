@@ -33,6 +33,9 @@ func spawn():
 		instance = medium.instance()
 	elif(idx==LARGE):
 		instance = large.instance()
+	
+	#This doesnt work
+	instance.add_to_group("camera_shaker")
 	self.add_child(instance)
 	
-	instance.add_to_group("camera_shaker")
+	

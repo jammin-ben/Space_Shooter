@@ -50,7 +50,9 @@ scale = Vector2( 10, 1 )
 ]]
 script = ExtResource( 5 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=[
+"camera",
+]]
 position = Vector2( 87.5345, 162.881 )
 rotating = true
 current = true
@@ -68,5 +70,8 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="SPawner" parent="." instance=ExtResource( 11 )]
-position = Vector2( 72.7745, 24.2582 )
+position = Vector2( 48.0134, -53.8942 )
+
+[node name="SPawner2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 112.838, -54.576 )
 

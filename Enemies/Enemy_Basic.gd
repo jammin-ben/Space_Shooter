@@ -29,7 +29,11 @@ func _ready():
 	
 	for gun in $Sprite/Guns.get_children():
 		gun.firerate = self.firerate
-		
+	
+	for cam in get_tree().get_nodes_in_group("camera"):
+		print('connecting (printing from enemy_basic.gd')
+		self.connect("camera_shake_requested",cam,"_on_camera_shake_requested")
+	
 #func fire():
 #	var bullet_instance = bullet.instance()
 #	get_tree().root.add_child(bullet_instance)
