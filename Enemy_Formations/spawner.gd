@@ -1,5 +1,5 @@
 extends Node2D
-const SPAWNRATE = 2
+const SPAWNRATE = 5
 var spawntimer=0
 enum {SMALL = 0,MEDIUM = 1,LARGE = 2}
 
