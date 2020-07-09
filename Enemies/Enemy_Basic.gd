@@ -9,7 +9,7 @@ export var explosion_texture = "res://Sprites/Explosion_small.png"
 export var backward_anim = false
 export var explosion_power = .45
 
-
+var droprate = .1
 var particle
 var bullet
 var explosion
@@ -42,7 +42,8 @@ func _ready():
 
 func _process(delta):
 	self.position.y+=delta*speed
-	
+	if(self.get_global_transform().origin.y>get_viewport().get_visible_rect().size.y + 32):
+		queue_free()
 	#if(reloading <=0):
 #		fire()
 	#reloading -= delta
@@ -58,6 +59,10 @@ func _on_Hurtbox_area_entered(area):
 	area.get_parent().queue_free()
 	health -= 1 # Replace with function body.
 	if health <=0:
+		if(randf()<droprate):
+			var health_kit_instance = load("res://Misc/health_pickup.tscn").instance()
+			get_parent().add_child(health_kit_instance)
+			health_kit_instance.position=position
 		var expl_instance = explosion.instance()
 		get_tree().root.add_child(expl_instance)
 		expl_instance.set_texture(load(explosion_texture))

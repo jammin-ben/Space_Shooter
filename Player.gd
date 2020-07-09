@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const ACC = 4000
 const MAX_SPEED = 300
-const FRICTION = .1
+const FRICTION = .15
 const RELOAD_TIME = .24
 const IFRAMES = 1
 const MAX_HEALTH=5
@@ -71,18 +71,19 @@ func _kill():
 	queue_free()
 
 func _on_Hurtbox_area_entered(area):
-	if(hit_timer <=0):
-		#sound effect
-		var get_hit_fx_instance = get_hit_fx.instance()
-		get_tree().root.add_child(get_hit_fx_instance)
-		get_hit_fx_instance.position=self.position
-		
-		animationplayer.play("flicker")
-		self.health-=1
-		if(area.get_parent() is Bullet):
-			area.get_parent().queue_free()
-		if self.health <= 0:
-			_kill()
-		hit_timer = IFRAMES
-		emit_signal("camera_shake_requested", .7)
-		emit_signal("frame_freeze_requested")
+	if not area.get_parent() is Health_Kit:
+		if(hit_timer <=0):
+			#sound effect
+			var get_hit_fx_instance = get_hit_fx.instance()
+			get_tree().root.add_child(get_hit_fx_instance)
+			get_hit_fx_instance.position=self.position
+			
+			animationplayer.play("flicker")
+			self.health-=1
+			if(area.get_parent() is Bullet):
+				area.get_parent().queue_free()
+			if self.health <= 0:
+				_kill()
+			hit_timer = IFRAMES
+			emit_signal("camera_shake_requested", .7)
+			emit_signal("frame_freeze_requested")

@@ -56,3 +56,4 @@ position = Vector2( 20, -8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flash_linear = SubResource( 1 )
+

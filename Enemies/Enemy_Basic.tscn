@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemies/Enemy_Basic.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Ship_Enemy.png" type="Texture" id=2]
 [ext_resource path="res://Hitboxes/Hurtbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hitboxes/Hitbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Bullets/Bullet_Spawner_Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sound_Effects/Shoot_sf.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Bullets/Bullet_Spawner_Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.8255, 9 )
@@ -93,9 +94,11 @@ anims/Sine = SubResource( 4 )
 [node name="Flasher" type="AnimationPlayer" parent="Sprite"]
 anims/flash = SubResource( 5 )
 
+[node name="sfx" parent="Sprite" instance=ExtResource( 5 )]
+
 [node name="Guns" type="Node2D" parent="Sprite"]
 
-[node name="Bullet_Spawner_Enemy" parent="Sprite/Guns" instance=ExtResource( 5 )]
+[node name="Bullet_Spawner_Enemy" parent="Sprite/Guns" instance=ExtResource( 6 )]
 
 [connection signal="area_entered" from="Sprite/Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

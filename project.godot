@@ -13,15 +13,21 @@ _global_script_classes=[ {
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://Bullets/Bullet_Basic.gd"
+}, {
+"base": "Node2D",
+"class": "Health_Kit",
+"language": "GDScript",
+"path": "res://health_pickup.gd"
 } ]
 _global_script_class_icons={
-"Bullet": ""
+"Bullet": "",
+"Health_Kit": ""
 }
 
 [application]
 
 config/name="Space_Shooter"
-run/main_scene="res://Levels/World.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

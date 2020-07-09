@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Ship_Main_2.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Fire.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Rocket.wav" type="AudioStream" id=4]
 [ext_resource path="res://Hitboxes/Hurtbox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Bullets/Bullet_Spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sound_Effects/Shoot_sf.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Bullets/Bullet_Spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/heal.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.8715, 12 )
@@ -83,16 +85,22 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flicker = SubResource( 4 )
 
+[node name="sfx" parent="." instance=ExtResource( 6 )]
+
 [node name="Guns" type="Node2D" parent="."]
 
-[node name="Right_Bullet_Spawner2" parent="Guns" instance=ExtResource( 6 )]
+[node name="Right_Bullet_Spawner2" parent="Guns" instance=ExtResource( 7 )]
 position = Vector2( 9, 0 )
 
-[node name="Left_Bullet_Spawner" parent="Guns" instance=ExtResource( 6 )]
+[node name="Left_Bullet_Spawner" parent="Guns" instance=ExtResource( 7 )]
 position = Vector2( -9, 0 )
 
-[node name="Bullet_Spawner" parent="Guns" instance=ExtResource( 6 )]
+[node name="Bullet_Spawner" parent="Guns" instance=ExtResource( 7 )]
 position = Vector2( 0, -10 )
+
+[node name="heal_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -4.049
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

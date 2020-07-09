@@ -26,8 +26,11 @@ func _on_player_killed():
 
 func update_dun():
 	var children = $bits.get_children()
-	for i in range(player_health, player_max_health):
-		children[i].set_dun(true)
+	for i in range(player_max_health):
+		if(i < player_health):
+			children[i].set_dun(false)
+		else:
+			children[i].set_dun(true)
 
 func _process(delta):
 	if not player_dead:
