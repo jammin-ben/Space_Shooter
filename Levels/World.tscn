@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sounds/Voyage.wav" type="AudioStream" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Misc/ParallaxBackground.gd" type="Script" id=9]
 [ext_resource path="res://Levels/Control.gd" type="Script" id=10]
 [ext_resource path="res://Enemy_Formations/spawner.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Misc/health_pickup.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -73,26 +72,15 @@ script = ExtResource( 10 )
 [node name="SPawner" parent="." instance=ExtResource( 11 )]
 position = Vector2( 32.1236, -94.2759 )
 spawnrate = 6
-level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4 ]
+level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4, 2, 1, 1, 0, 1, 6, 2, 2, 1, 1 ]
+
+[node name="SPawner4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 134.546, -95.5505 )
+spawnrate = 6
+level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4, 2, 1, 1, 0, 1, 6, 2, 2, 1, 1 ]
 
 [node name="SPawner3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 82.4041, -48.8838 )
 spawnrate = 6
-level = [ 1, 0, 4, 2, 4, 3, 5, 4, 2, 3, 2, 1, 1, 1, 7, 4, 5, 3, 2, 7 ]
-
-[node name="SPawner2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 137.573, -93.5775 )
-spawnrate = 6
-level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4 ]
-
-[node name="Node2D" parent="." instance=ExtResource( 12 )]
-position = Vector2( 78.1099, 80.7918 )
-
-[node name="Node2D2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 115.173, 79.8653 )
-
-[node name="SPawner4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 52.3521, 56.0585 )
-spawnrate = 2
-level = [ 2, 6, 2, 2, 2 ]
+level = [ 1, 0, 4, 2, 4, 3, 5, 4, 2, 3, 2, 4, 3, 1, 1, 7, 4, 5, 6, 7 ]
 

@@ -31,7 +31,6 @@ func _ready():
 		gun.firerate = self.firerate
 	
 	for cam in get_tree().get_nodes_in_group("camera"):
-		print('connecting (printing from enemy_basic.gd')
 		self.connect("camera_shake_requested",cam,"_on_camera_shake_requested")
 	
 #func fire():

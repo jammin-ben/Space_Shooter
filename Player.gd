@@ -12,7 +12,7 @@ var reloading=0.0
 var hit_timer = 0.0
 
 
-signal frame_freeze_requested
+signal frame_freeze_requested()
 signal camera_shake_requested(amount)
 signal player_killed()
 

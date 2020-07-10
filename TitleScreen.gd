@@ -9,3 +9,7 @@ export var scene_path = "res://Levels/World.tscn"
 
 func _on_NewGame_button_up():
 	get_tree().change_scene(scene_path)
+
+
+func _on_Exit_button_up():
+	get_tree().quit()

@@ -10,5 +10,4 @@ func _on_Area2D_area_entered(area):
 	self.queue_free()
 	#print(area.get_parent().name)
 	if(area.get_parent().health < 5):
-		print('healthkit increment')
 		area.get_parent().health+=1
