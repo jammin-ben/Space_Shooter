@@ -70,17 +70,17 @@ script = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="SPawner" parent="." instance=ExtResource( 11 )]
-position = Vector2( 32.1236, -94.2759 )
+position = Vector2( 30.0702, -95.3026 )
 spawnrate = 6
-level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4, 2, 1, 1, 0, 1, 6, 2, 2, 1, 1 ]
+level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 2, 2, 1, 1, 1, 0, 1, 2, 2, 1, 1 ]
 
 [node name="SPawner4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 134.546, -95.5505 )
 spawnrate = 6
-level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 4, 2, 1, 1, 0, 1, 6, 2, 2, 1, 1 ]
+level = [ 0, 1, 0, 1, 1, 0, 2, 1, 2, 2, 2, 1, 1, 1, 0, 1, 2, 2, 1, 1 ]
 
 [node name="SPawner3" parent="." instance=ExtResource( 11 )]
-position = Vector2( 82.4041, -48.8838 )
+position = Vector2( 82.4041, -49.9105 )
 spawnrate = 6
-level = [ 1, 0, 4, 2, 4, 3, 5, 4, 2, 3, 2, 4, 3, 1, 1, 7, 4, 5, 6, 7 ]
+level = [ 1, 0, 4, 2, 4, 3, 5, 4, 2, 3, 2, 4, 1, 1, 1, 7, 6, 5, 6, 7 ]
 

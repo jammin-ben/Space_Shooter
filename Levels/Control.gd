@@ -4,7 +4,7 @@ extends Node
 # var a = 2
 # var b = "text"
 
-var mute = true
+var mute = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	AudioServer.set_bus_mute(0,mute)

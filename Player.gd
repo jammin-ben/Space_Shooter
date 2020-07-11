@@ -39,7 +39,7 @@ var get_hit_fx
 func _ready():
 	#bullet = load("res://Bullets/Bullet_Basic.tscn")
 	bullet_fx = load("res://Sound_Effects/Shoot_sf.tscn")
-	get_hit_fx = load("res://Sound_Effects/Player_Hit_sf.tscn")
+	get_hit_fx = load("res://Sound_Effects/Player_hit_sf.tscn")
 
 func _physics_process(delta):
 	#sky movement

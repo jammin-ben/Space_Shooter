@@ -5,10 +5,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Enemy_Medium" parent="." instance=ExtResource( 1 )]
+position = Vector2( 18.9598, 0.736118 )
 
 [node name="Enemy_Medium2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -49.7222, 0 )
+position = Vector2( -20.83, 0.184029 )
 
 [node name="Enemy_Medium3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -24.8611, 28.2667 )
+position = Vector2( -0.201492, 28.0827 )
 
